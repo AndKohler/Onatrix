@@ -1,0 +1,18 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.ProjectSection)Model.Content;
+}
+
+<section class="max-w-7xl mx-auto px-6 lg:px-12 pt-20 pb-0 mb-0 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div class="relative flex justify-center">
+        <div class="absolute bottom-0 w-80 h-96 bg-gray-700/20 rounded-lg -z-10"></div>
+        <img src="@content.ProjectImage?.Url()" class="w-80 lg:w-[420px] object-cover relative z-10" />
+    </div>
+    <div class="space-y-6">
+        <h3 class="text-4xl font-bold text-gray-800 leading-tight">@content.ProjectTitle</h3>
+        <div class="prose prose-gray max-w-none">
+            @Html.Raw(content.ProjectContact)
+        </div>
+    </div>
+</section>

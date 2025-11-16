@@ -1,0 +1,12 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+@{
+    var rootContent = Umbraco.ContentAtRoot();
+    var siteSetting = rootContent.OfType<SiteSettings>().FirstOrDefault();
+}
+
+<section class="w-full bg-black py-4">
+    <div class="max-w-screen-xl mx-auto text-center">
+        <p class="text-primary text-sm">@siteSetting?.FooterText</p>
+    </div>
+</section>
